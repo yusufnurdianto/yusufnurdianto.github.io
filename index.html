@@ -1,0 +1,1411 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="initial-scale=1,user-scalable=no,maximum-scale=1,width=device-width">
+        <meta name="mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <link rel="stylesheet" href="css/leaflet.css">
+        <link rel="stylesheet" href="css/qgis2web.css">
+        <link rel="stylesheet" href="css/leaflet-search.css">
+        <style>
+        html, body, #map {
+            width: 100%;
+            height: 100%;
+            padding: 0;
+            margin: 0;
+        }
+        </style>
+        <title></title>
+    </head>
+    <body>
+        <div id="map">
+        </div>
+        <script src="js/qgis2web_expressions.js"></script>
+        <script src="js/leaflet.js"></script>
+        <script src="js/multi-style-layer.js"></script>
+        <script src="js/leaflet.rotatedMarker.js"></script>
+        <script src="js/leaflet.pattern.js"></script>
+        <script src="js/leaflet-hash.js"></script>
+        <script src="js/Autolinker.min.js"></script>
+        <script src="js/rbush.min.js"></script>
+        <script src="js/labelgun.min.js"></script>
+        <script src="js/labels.js"></script>
+        <script src="js/leaflet-search.js"></script>
+        <script src="data/ADM_Kel_Pekalongan_1.js"></script>
+        <script src="data/ADM_Kec_Pekalongan_2.js"></script>
+        <script src="data/Pesisir_Kota_Pekalongan_3.js"></script>
+        <script src="data/Sungai_LN_Kota_Pekalongan_4.js"></script>
+        <script src="data/Sungai_AR_Kota_Pekalongan_5.js"></script>
+        <script src="data/Jalan_Kota_Pekalongan_6.js"></script>
+        <script src="data/tempatbatik_7.js"></script>
+        <script src="data/Jembatan_Kota_Pekalongan_8.js"></script>
+        <script src="data/Rel_KA_Kota_Pekalongan_9.js"></script>
+        <script>
+        var map = L.map('map', {
+            zoomControl:true, maxZoom:28, minZoom:1
+        }).fitBounds([[-6.94589224834,109.594477895],[-6.85449240588,109.769609112]]);
+        var hash = new L.Hash(map);
+        map.attributionControl.addAttribution('<a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a>');
+        var bounds_group = new L.featureGroup([]);
+        function setBounds() {
+        }
+        var overlay_GoogleRoad_0 = L.tileLayer('https://mt1.google.com/vt/lyrs=m&x={x}&y={y}&z={z}', {
+            opacity: 1.0
+        });
+        overlay_GoogleRoad_0.addTo(map);
+        map.addLayer(overlay_GoogleRoad_0);
+        function pop_ADM_Kel_Pekalongan_1(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['KDPPUM'] !== null ? Autolinker.link(String(feature.properties['KDPPUM'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['NAMOBJ'] !== null ? Autolinker.link(String(feature.properties['NAMOBJ'])) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_ADM_Kel_Pekalongan_1_0(feature) {
+            switch(String(feature.properties['NAMOBJ'])) {
+                case 'Bandengan':
+                    return {
+                pane: 'pane_ADM_Kel_Pekalongan_1',
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(115,222,229,1.0)',
+            }
+                    break;
+                case 'Banyuuripageng':
+                    return {
+                pane: 'pane_ADM_Kel_Pekalongan_1',
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(96,162,215,1.0)',
+            }
+                    break;
+                case 'Banyuuripalit':
+                    return {
+                pane: 'pane_ADM_Kel_Pekalongan_1',
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(129,155,221,1.0)',
+            }
+                    break;
+                case 'Baros':
+                    return {
+                pane: 'pane_ADM_Kel_Pekalongan_1',
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(226,196,24,1.0)',
+            }
+                    break;
+                case 'Bendan':
+                    return {
+                pane: 'pane_ADM_Kel_Pekalongan_1',
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(102,215,193,1.0)',
+            }
+                    break;
+                case 'Buaran':
+                    return {
+                pane: 'pane_ADM_Kel_Pekalongan_1',
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(102,223,215,1.0)',
+            }
+                    break;
+                case 'Bumirejo':
+                    return {
+                pane: 'pane_ADM_Kel_Pekalongan_1',
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(210,27,207,1.0)',
+            }
+                    break;
+                case 'Degayu':
+                    return {
+                pane: 'pane_ADM_Kel_Pekalongan_1',
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(114,219,81,1.0)',
+            }
+                    break;
+                case 'Dekoro':
+                    return {
+                pane: 'pane_ADM_Kel_Pekalongan_1',
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(200,32,110,1.0)',
+            }
+                    break;
+                case 'Dukuh':
+                    return {
+                pane: 'pane_ADM_Kel_Pekalongan_1',
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(87,202,89,1.0)',
+            }
+                    break;
+                case 'Duwet':
+                    return {
+                pane: 'pane_ADM_Kel_Pekalongan_1',
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(220,133,92,1.0)',
+            }
+                    break;
+                case 'Gamer':
+                    return {
+                pane: 'pane_ADM_Kel_Pekalongan_1',
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(80,105,234,1.0)',
+            }
+                    break;
+                case 'Jenggot':
+                    return {
+                pane: 'pane_ADM_Kel_Pekalongan_1',
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(149,226,15,1.0)',
+            }
+                    break;
+                case 'Kandangpanjang':
+                    return {
+                pane: 'pane_ADM_Kel_Pekalongan_1',
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(149,226,15,1.0)',
+            }
+                    break;
+                case 'Karangmalang':
+                    return {
+                pane: 'pane_ADM_Kel_Pekalongan_1',
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(234,156,46,1.0)',
+            }
+                    break;
+                case 'Kauman':
+                    return {
+                pane: 'pane_ADM_Kel_Pekalongan_1',
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(145,222,239,1.0)',
+            }
+                    break;
+                case 'Kebulen':
+                    return {
+                pane: 'pane_ADM_Kel_Pekalongan_1',
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(84,89,218,1.0)',
+            }
+                    break;
+                case 'Kel Noyontaan':
+                    return {
+                pane: 'pane_ADM_Kel_Pekalongan_1',
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(80,216,62,1.0)',
+            }
+                    break;
+                case 'Keputran':
+                    return {
+                pane: 'pane_ADM_Kel_Pekalongan_1',
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(231,45,157,1.0)',
+            }
+                    break;
+                case 'Kergon':
+                    return {
+                pane: 'pane_ADM_Kel_Pekalongan_1',
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(42,214,68,1.0)',
+            }
+                    break;
+                case 'Klego':
+                    return {
+                pane: 'pane_ADM_Kel_Pekalongan_1',
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(84,217,140,1.0)',
+            }
+                    break;
+                case 'Kradenan':
+                    return {
+                pane: 'pane_ADM_Kel_Pekalongan_1',
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(155,216,120,1.0)',
+            }
+                    break;
+                case 'Kramatsari':
+                    return {
+                pane: 'pane_ADM_Kel_Pekalongan_1',
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(196,106,207,1.0)',
+            }
+                    break;
+                case 'Krapyak Kidul':
+                    return {
+                pane: 'pane_ADM_Kel_Pekalongan_1',
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(47,28,216,1.0)',
+            }
+                    break;
+                case 'Krapyak Lor':
+                    return {
+                pane: 'pane_ADM_Kel_Pekalongan_1',
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(53,204,96,1.0)',
+            }
+                    break;
+                case 'Kraton Kidul':
+                    return {
+                pane: 'pane_ADM_Kel_Pekalongan_1',
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(234,78,193,1.0)',
+            }
+                    break;
+                case 'Kraton Lor':
+                    return {
+                pane: 'pane_ADM_Kel_Pekalongan_1',
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(234,78,193,1.0)',
+            }
+                    break;
+                case 'Kuripan Kidul':
+                    return {
+                pane: 'pane_ADM_Kel_Pekalongan_1',
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(127,200,234,1.0)',
+            }
+                    break;
+                case 'Kuripan Lor':
+                    return {
+                pane: 'pane_ADM_Kel_Pekalongan_1',
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(109,223,185,1.0)',
+            }
+                    break;
+                case 'Landungsari':
+                    return {
+                pane: 'pane_ADM_Kel_Pekalongan_1',
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(184,28,236,1.0)',
+            }
+                    break;
+                case 'Medono':
+                    return {
+                pane: 'pane_ADM_Kel_Pekalongan_1',
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(64,130,221,1.0)',
+            }
+                    break;
+                case 'Pabean':
+                    return {
+                pane: 'pane_ADM_Kel_Pekalongan_1',
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(205,61,73,1.0)',
+            }
+                    break;
+                case 'Panjang Wetan':
+                    return {
+                pane: 'pane_ADM_Kel_Pekalongan_1',
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(25,222,130,1.0)',
+            }
+                    break;
+                case 'Pasirsari':
+                    return {
+                pane: 'pane_ADM_Kel_Pekalongan_1',
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(232,128,163,1.0)',
+            }
+                    break;
+                case 'Podosugih':
+                    return {
+                pane: 'pane_ADM_Kel_Pekalongan_1',
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(238,104,220,1.0)',
+            }
+                    break;
+                case 'Poncol':
+                    return {
+                pane: 'pane_ADM_Kel_Pekalongan_1',
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(225,137,64,1.0)',
+            }
+                    break;
+                case 'Pringlangu':
+                    return {
+                pane: 'pane_ADM_Kel_Pekalongan_1',
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(216,102,96,1.0)',
+            }
+                    break;
+                case 'Sampang':
+                    return {
+                pane: 'pane_ADM_Kel_Pekalongan_1',
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(221,219,54,1.0)',
+            }
+                    break;
+                case 'Sapuro':
+                    return {
+                pane: 'pane_ADM_Kel_Pekalongan_1',
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(141,222,60,1.0)',
+            }
+                    break;
+                case 'Soko':
+                    return {
+                pane: 'pane_ADM_Kel_Pekalongan_1',
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(219,105,130,1.0)',
+            }
+                    break;
+                case 'Sugihwaras':
+                    return {
+                pane: 'pane_ADM_Kel_Pekalongan_1',
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(238,204,118,1.0)',
+            }
+                    break;
+                case 'Sukorejo':
+                    return {
+                pane: 'pane_ADM_Kel_Pekalongan_1',
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(142,36,208,1.0)',
+            }
+                    break;
+                case 'Tegalrejo':
+                    return {
+                pane: 'pane_ADM_Kel_Pekalongan_1',
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(186,203,28,1.0)',
+            }
+                    break;
+                case 'Tirto':
+                    return {
+                pane: 'pane_ADM_Kel_Pekalongan_1',
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(150,128,222,1.0)',
+            }
+                    break;
+                case 'Yosorejo':
+                    return {
+                pane: 'pane_ADM_Kel_Pekalongan_1',
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(238,101,70,1.0)',
+            }
+                    break;
+            }
+        }
+        map.createPane('pane_ADM_Kel_Pekalongan_1');
+        map.getPane('pane_ADM_Kel_Pekalongan_1').style.zIndex = 401;
+        map.getPane('pane_ADM_Kel_Pekalongan_1').style['mix-blend-mode'] = 'normal';
+        var layer_ADM_Kel_Pekalongan_1 = new L.geoJson(json_ADM_Kel_Pekalongan_1, {
+            attribution: '<a href=""></a>',
+            pane: 'pane_ADM_Kel_Pekalongan_1',
+            onEachFeature: pop_ADM_Kel_Pekalongan_1,
+            style: style_ADM_Kel_Pekalongan_1_0,
+        });
+        bounds_group.addLayer(layer_ADM_Kel_Pekalongan_1);
+        map.addLayer(layer_ADM_Kel_Pekalongan_1);
+        function pop_ADM_Kec_Pekalongan_2(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['OBJECTID'] !== null ? Autolinker.link(String(feature.properties['OBJECTID'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['WADMKC'] !== null ? Autolinker.link(String(feature.properties['WADMKC'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['WADMKK'] !== null ? Autolinker.link(String(feature.properties['WADMKK'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['WADMPR'] !== null ? Autolinker.link(String(feature.properties['WADMPR'])) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_ADM_Kec_Pekalongan_2_0() {
+            return {
+                pane: 'pane_ADM_Kec_Pekalongan_2',
+                opacity: 1,
+                color: 'rgba(0,0,0,0.447059)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(228,244,135,0.447059)',
+            }
+        }
+        map.createPane('pane_ADM_Kec_Pekalongan_2');
+        map.getPane('pane_ADM_Kec_Pekalongan_2').style.zIndex = 402;
+        map.getPane('pane_ADM_Kec_Pekalongan_2').style['mix-blend-mode'] = 'normal';
+        var layer_ADM_Kec_Pekalongan_2 = new L.geoJson(json_ADM_Kec_Pekalongan_2, {
+            attribution: '<a href=""></a>',
+            pane: 'pane_ADM_Kec_Pekalongan_2',
+            onEachFeature: pop_ADM_Kec_Pekalongan_2,
+            style: style_ADM_Kec_Pekalongan_2_0,
+        });
+        bounds_group.addLayer(layer_ADM_Kec_Pekalongan_2);
+        map.addLayer(layer_ADM_Kec_Pekalongan_2);
+        function pop_Pesisir_Kota_Pekalongan_3(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['NAMOBJ'] !== null ? Autolinker.link(String(feature.properties['NAMOBJ'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['FCODE'] !== null ? Autolinker.link(String(feature.properties['FCODE'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['TIPPSS'] !== null ? Autolinker.link(String(feature.properties['TIPPSS'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['STAPSS'] !== null ? Autolinker.link(String(feature.properties['STAPSS'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['JNSPAN'] !== null ? Autolinker.link(String(feature.properties['JNSPAN'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['REMARK'] !== null ? Autolinker.link(String(feature.properties['REMARK'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['SRS_ID'] !== null ? Autolinker.link(String(feature.properties['SRS_ID'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['LCODE'] !== null ? Autolinker.link(String(feature.properties['LCODE'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['METADATA'] !== null ? Autolinker.link(String(feature.properties['METADATA'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['SHAPE_Leng'] !== null ? Autolinker.link(String(feature.properties['SHAPE_Leng'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['SHAPE_Area'] !== null ? Autolinker.link(String(feature.properties['SHAPE_Area'])) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_Pesisir_Kota_Pekalongan_3_0() {
+            return {
+                pane: 'pane_Pesisir_Kota_Pekalongan_3',
+                opacity: 1,
+                color: 'rgba(114,133,132,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(165,191,221,1.0)',
+            }
+        }
+        var pattern_Pesisir_Kota_Pekalongan_3_1_0 = new L.StripePattern({
+            weight: 0.26,
+            spaceWeight: 2.0,
+            color: '#000000',
+            opacity: 1.0,
+            spaceOpacity: 0,
+            angle: 315
+        });
+        pattern_Pesisir_Kota_Pekalongan_3_1_0.addTo(map);
+        function style_Pesisir_Kota_Pekalongan_3_1() {
+            return {
+                pane: 'pane_Pesisir_Kota_Pekalongan_3',
+                stroke: false,
+                fillOpacity: 1,
+                fillPattern: pattern_Pesisir_Kota_Pekalongan_3_1_0
+            }
+        }
+        map.createPane('pane_Pesisir_Kota_Pekalongan_3');
+        map.getPane('pane_Pesisir_Kota_Pekalongan_3').style.zIndex = 403;
+        map.getPane('pane_Pesisir_Kota_Pekalongan_3').style['mix-blend-mode'] = 'normal';
+        var layer_Pesisir_Kota_Pekalongan_3 = new L.geoJson.multiStyle(json_Pesisir_Kota_Pekalongan_3, {
+            attribution: '<a href=""></a>',
+            pane: 'pane_Pesisir_Kota_Pekalongan_3',
+            onEachFeature: pop_Pesisir_Kota_Pekalongan_3,
+            styles: [style_Pesisir_Kota_Pekalongan_3_0,style_Pesisir_Kota_Pekalongan_3_1,]
+        });
+        bounds_group.addLayer(layer_Pesisir_Kota_Pekalongan_3);
+        map.addLayer(layer_Pesisir_Kota_Pekalongan_3);
+        function pop_Sungai_LN_Kota_Pekalongan_4(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['NAMOBJ'] !== null ? Autolinker.link(String(feature.properties['NAMOBJ'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['TIPSNG'] !== null ? Autolinker.link(String(feature.properties['TIPSNG'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['KLSSNG'] !== null ? Autolinker.link(String(feature.properties['KLSSNG'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['FCODE'] !== null ? Autolinker.link(String(feature.properties['FCODE'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['REMARK'] !== null ? Autolinker.link(String(feature.properties['REMARK'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['SRS_ID'] !== null ? Autolinker.link(String(feature.properties['SRS_ID'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['LCODE'] !== null ? Autolinker.link(String(feature.properties['LCODE'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['METADATA'] !== null ? Autolinker.link(String(feature.properties['METADATA'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['NAMWS'] !== null ? Autolinker.link(String(feature.properties['NAMWS'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['NAMDAS'] !== null ? Autolinker.link(String(feature.properties['NAMDAS'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['STATUS'] !== null ? Autolinker.link(String(feature.properties['STATUS'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['WMAX'] !== null ? Autolinker.link(String(feature.properties['WMAX'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['DBTMAX'] !== null ? Autolinker.link(String(feature.properties['DBTMAX'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['SLPRT'] !== null ? Autolinker.link(String(feature.properties['SLPRT'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['SHAPE_Leng'] !== null ? Autolinker.link(String(feature.properties['SHAPE_Leng'])) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_Sungai_LN_Kota_Pekalongan_4_0() {
+            return {
+                pane: 'pane_Sungai_LN_Kota_Pekalongan_4',
+                opacity: 1,
+                color: 'rgba(192,223,255,1.0)',
+                dashArray: '',
+                lineCap: 'square',
+                lineJoin: 'round',
+                weight: 1.0,
+                fillOpacity: 0,
+            }
+        }
+        map.createPane('pane_Sungai_LN_Kota_Pekalongan_4');
+        map.getPane('pane_Sungai_LN_Kota_Pekalongan_4').style.zIndex = 404;
+        map.getPane('pane_Sungai_LN_Kota_Pekalongan_4').style['mix-blend-mode'] = 'normal';
+        var layer_Sungai_LN_Kota_Pekalongan_4 = new L.geoJson(json_Sungai_LN_Kota_Pekalongan_4, {
+            attribution: '<a href=""></a>',
+            pane: 'pane_Sungai_LN_Kota_Pekalongan_4',
+            onEachFeature: pop_Sungai_LN_Kota_Pekalongan_4,
+            style: style_Sungai_LN_Kota_Pekalongan_4_0,
+        });
+        bounds_group.addLayer(layer_Sungai_LN_Kota_Pekalongan_4);
+        map.addLayer(layer_Sungai_LN_Kota_Pekalongan_4);
+        function pop_Sungai_AR_Kota_Pekalongan_5(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['NAMOBJ'] !== null ? Autolinker.link(String(feature.properties['NAMOBJ'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['JNSSNG'] !== null ? Autolinker.link(String(feature.properties['JNSSNG'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['KLSSNG'] !== null ? Autolinker.link(String(feature.properties['KLSSNG'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['FCODE'] !== null ? Autolinker.link(String(feature.properties['FCODE'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['REMARK'] !== null ? Autolinker.link(String(feature.properties['REMARK'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['SRS_ID'] !== null ? Autolinker.link(String(feature.properties['SRS_ID'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['LCODE'] !== null ? Autolinker.link(String(feature.properties['LCODE'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['METADATA'] !== null ? Autolinker.link(String(feature.properties['METADATA'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['NAMWS'] !== null ? Autolinker.link(String(feature.properties['NAMWS'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['NAMDAS'] !== null ? Autolinker.link(String(feature.properties['NAMDAS'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['SHAPE_Leng'] !== null ? Autolinker.link(String(feature.properties['SHAPE_Leng'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['SHAPE_Area'] !== null ? Autolinker.link(String(feature.properties['SHAPE_Area'])) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_Sungai_AR_Kota_Pekalongan_5_0() {
+            return {
+                pane: 'pane_Sungai_AR_Kota_Pekalongan_5',
+                opacity: 1,
+                color: 'rgba(114,133,132,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(165,191,221,1.0)',
+            }
+        }
+        map.createPane('pane_Sungai_AR_Kota_Pekalongan_5');
+        map.getPane('pane_Sungai_AR_Kota_Pekalongan_5').style.zIndex = 405;
+        map.getPane('pane_Sungai_AR_Kota_Pekalongan_5').style['mix-blend-mode'] = 'normal';
+        var layer_Sungai_AR_Kota_Pekalongan_5 = new L.geoJson(json_Sungai_AR_Kota_Pekalongan_5, {
+            attribution: '<a href=""></a>',
+            pane: 'pane_Sungai_AR_Kota_Pekalongan_5',
+            onEachFeature: pop_Sungai_AR_Kota_Pekalongan_5,
+            style: style_Sungai_AR_Kota_Pekalongan_5_0,
+        });
+        bounds_group.addLayer(layer_Sungai_AR_Kota_Pekalongan_5);
+        map.addLayer(layer_Sungai_AR_Kota_Pekalongan_5);
+        function pop_Jalan_Kota_Pekalongan_6(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['NAMRJL'] !== null ? Autolinker.link(String(feature.properties['NAMRJL'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['KONRJL'] !== null ? Autolinker.link(String(feature.properties['KONRJL'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['MATRJL'] !== null ? Autolinker.link(String(feature.properties['MATRJL'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['FGSRJL'] !== null ? Autolinker.link(String(feature.properties['FGSRJL'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['UTKRJL'] !== null ? Autolinker.link(String(feature.properties['UTKRJL'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['TOLRJL'] !== null ? Autolinker.link(String(feature.properties['TOLRJL'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['WLYRJL'] !== null ? Autolinker.link(String(feature.properties['WLYRJL'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['AUTRJL'] !== null ? Autolinker.link(String(feature.properties['AUTRJL'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['KLSRJL'] !== null ? Autolinker.link(String(feature.properties['KLSRJL'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['SPCRJL'] !== null ? Autolinker.link(String(feature.properties['SPCRJL'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['JPARJL'] !== null ? Autolinker.link(String(feature.properties['JPARJL'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['ARHRJL'] !== null ? Autolinker.link(String(feature.properties['ARHRJL'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['STARJL'] !== null ? Autolinker.link(String(feature.properties['STARJL'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['KLLRJL'] !== null ? Autolinker.link(String(feature.properties['KLLRJL'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['MEDRJL'] !== null ? Autolinker.link(String(feature.properties['MEDRJL'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['LOCRJL'] !== null ? Autolinker.link(String(feature.properties['LOCRJL'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['JARRJL'] !== null ? Autolinker.link(String(feature.properties['JARRJL'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['FCODE'] !== null ? Autolinker.link(String(feature.properties['FCODE'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['REMARK'] !== null ? Autolinker.link(String(feature.properties['REMARK'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['SRS_ID'] !== null ? Autolinker.link(String(feature.properties['SRS_ID'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['LCODE'] !== null ? Autolinker.link(String(feature.properties['LCODE'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['METADATA'] !== null ? Autolinker.link(String(feature.properties['METADATA'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['SHAPE_Leng'] !== null ? Autolinker.link(String(feature.properties['SHAPE_Leng'])) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_Jalan_Kota_Pekalongan_6_0() {
+            return {
+                pane: 'pane_Jalan_Kota_Pekalongan_6',
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'round',
+                lineJoin: 'round',
+                weight: 6.0,
+                fillOpacity: 0,
+            }
+        }
+        function style_Jalan_Kota_Pekalongan_6_1() {
+            return {
+                pane: 'pane_Jalan_Kota_Pekalongan_6',
+                opacity: 1,
+                color: 'rgba(255,255,255,1.0)',
+                dashArray: '',
+                lineCap: 'round',
+                lineJoin: 'round',
+                weight: 3.0,
+                fillOpacity: 0,
+            }
+        }
+        map.createPane('pane_Jalan_Kota_Pekalongan_6');
+        map.getPane('pane_Jalan_Kota_Pekalongan_6').style.zIndex = 406;
+        map.getPane('pane_Jalan_Kota_Pekalongan_6').style['mix-blend-mode'] = 'normal';
+        var layer_Jalan_Kota_Pekalongan_6 = new L.geoJson.multiStyle(json_Jalan_Kota_Pekalongan_6, {
+            attribution: '<a href=""></a>',
+            pane: 'pane_Jalan_Kota_Pekalongan_6',
+            onEachFeature: pop_Jalan_Kota_Pekalongan_6,
+            styles: [style_Jalan_Kota_Pekalongan_6_0,style_Jalan_Kota_Pekalongan_6_1,]
+        });
+        bounds_group.addLayer(layer_Jalan_Kota_Pekalongan_6);
+        map.addLayer(layer_Jalan_Kota_Pekalongan_6);
+        function pop_tempatbatik_7(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['id'] !== null ? Autolinker.link(String(feature.properties['id'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Tempat'] !== null ? Autolinker.link(String(feature.properties['Tempat'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Keterangan'] !== null ? Autolinker.link(String(feature.properties['Keterangan'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Gambar</th>\
+                        <td>' + (feature.properties['Gambar'] !== null ? '<img src="images/' + String(feature.properties['Gambar']).replace(/[\\\/:]/g, '_').trim() + '">' : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_tempatbatik_7_0() {
+            return {
+                pane: 'pane_tempatbatik_7',
+                radius: 4.8,
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(227,26,28,1.0)',
+            }
+        }
+        map.createPane('pane_tempatbatik_7');
+        map.getPane('pane_tempatbatik_7').style.zIndex = 407;
+        map.getPane('pane_tempatbatik_7').style['mix-blend-mode'] = 'normal';
+        var layer_tempatbatik_7 = new L.geoJson(json_tempatbatik_7, {
+            attribution: '<a href=""></a>',
+            pane: 'pane_tempatbatik_7',
+            onEachFeature: pop_tempatbatik_7,
+            pointToLayer: function (feature, latlng) {
+                var context = {
+                    feature: feature,
+                    variables: {}
+                };
+                return L.circleMarker(latlng, style_tempatbatik_7_0(feature));
+            },
+        });
+        bounds_group.addLayer(layer_tempatbatik_7);
+        map.addLayer(layer_tempatbatik_7);
+        function pop_Jembatan_Kota_Pekalongan_8(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['NAMOBJ'] !== null ? Autolinker.link(String(feature.properties['NAMOBJ'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['TIPJMB'] !== null ? Autolinker.link(String(feature.properties['TIPJMB'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['FGSJMB'] !== null ? Autolinker.link(String(feature.properties['FGSJMB'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['TONJMB'] !== null ? Autolinker.link(String(feature.properties['TONJMB'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['TGGJMB'] !== null ? Autolinker.link(String(feature.properties['TGGJMB'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['JBTJMB'] !== null ? Autolinker.link(String(feature.properties['JBTJMB'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['LBRJMB'] !== null ? Autolinker.link(String(feature.properties['LBRJMB'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['MATJMB'] !== null ? Autolinker.link(String(feature.properties['MATJMB'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['STRJMB'] !== null ? Autolinker.link(String(feature.properties['STRJMB'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['DEKJMB'] !== null ? Autolinker.link(String(feature.properties['DEKJMB'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['BTSJMB'] !== null ? Autolinker.link(String(feature.properties['BTSJMB'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['AYUJMB'] !== null ? Autolinker.link(String(feature.properties['AYUJMB'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['FCODE'] !== null ? Autolinker.link(String(feature.properties['FCODE'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['REMARK'] !== null ? Autolinker.link(String(feature.properties['REMARK'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['SRS_ID'] !== null ? Autolinker.link(String(feature.properties['SRS_ID'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['LCODE'] !== null ? Autolinker.link(String(feature.properties['LCODE'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['METADATA'] !== null ? Autolinker.link(String(feature.properties['METADATA'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['SHAPE_Leng'] !== null ? Autolinker.link(String(feature.properties['SHAPE_Leng'])) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_Jembatan_Kota_Pekalongan_8_0() {
+            return {
+                pane: 'pane_Jembatan_Kota_Pekalongan_8',
+                opacity: 1,
+                color: 'rgba(122,245,0,1.0)',
+                dashArray: '',
+                lineCap: 'round',
+                lineJoin: 'round',
+                weight: 6.0,
+                fillOpacity: 0,
+            }
+        }
+        function style_Jembatan_Kota_Pekalongan_8_1() {
+            return {
+                pane: 'pane_Jembatan_Kota_Pekalongan_8',
+                opacity: 1,
+                color: 'rgba(85,170,0,1.0)',
+                dashArray: '1,5',
+                lineCap: 'round',
+                lineJoin: 'round',
+                weight: 5.0,
+                fillOpacity: 0,
+            }
+        }
+        map.createPane('pane_Jembatan_Kota_Pekalongan_8');
+        map.getPane('pane_Jembatan_Kota_Pekalongan_8').style.zIndex = 408;
+        map.getPane('pane_Jembatan_Kota_Pekalongan_8').style['mix-blend-mode'] = 'normal';
+        var layer_Jembatan_Kota_Pekalongan_8 = new L.geoJson.multiStyle(json_Jembatan_Kota_Pekalongan_8, {
+            attribution: '<a href=""></a>',
+            pane: 'pane_Jembatan_Kota_Pekalongan_8',
+            onEachFeature: pop_Jembatan_Kota_Pekalongan_8,
+            styles: [style_Jembatan_Kota_Pekalongan_8_0,style_Jembatan_Kota_Pekalongan_8_1,]
+        });
+        bounds_group.addLayer(layer_Jembatan_Kota_Pekalongan_8);
+        map.addLayer(layer_Jembatan_Kota_Pekalongan_8);
+        function pop_Rel_KA_Kota_Pekalongan_9(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['NAMRJL'] !== null ? Autolinker.link(String(feature.properties['NAMRJL'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['KONRJL'] !== null ? Autolinker.link(String(feature.properties['KONRJL'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['MATRJL'] !== null ? Autolinker.link(String(feature.properties['MATRJL'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['FGSRJL'] !== null ? Autolinker.link(String(feature.properties['FGSRJL'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['UTKRJL'] !== null ? Autolinker.link(String(feature.properties['UTKRJL'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['TOLRJL'] !== null ? Autolinker.link(String(feature.properties['TOLRJL'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['WLYRJL'] !== null ? Autolinker.link(String(feature.properties['WLYRJL'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['AUTRJL'] !== null ? Autolinker.link(String(feature.properties['AUTRJL'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['KLSRJL'] !== null ? Autolinker.link(String(feature.properties['KLSRJL'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['SPCRJL'] !== null ? Autolinker.link(String(feature.properties['SPCRJL'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['JPARJL'] !== null ? Autolinker.link(String(feature.properties['JPARJL'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['ARHRJL'] !== null ? Autolinker.link(String(feature.properties['ARHRJL'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['STARJL'] !== null ? Autolinker.link(String(feature.properties['STARJL'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['KLLRJL'] !== null ? Autolinker.link(String(feature.properties['KLLRJL'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['MEDRJL'] !== null ? Autolinker.link(String(feature.properties['MEDRJL'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['LOCRJL'] !== null ? Autolinker.link(String(feature.properties['LOCRJL'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['JARRJL'] !== null ? Autolinker.link(String(feature.properties['JARRJL'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['FCODE'] !== null ? Autolinker.link(String(feature.properties['FCODE'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['REMARK'] !== null ? Autolinker.link(String(feature.properties['REMARK'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['SRS_ID'] !== null ? Autolinker.link(String(feature.properties['SRS_ID'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['LCODE'] !== null ? Autolinker.link(String(feature.properties['LCODE'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['METADATA'] !== null ? Autolinker.link(String(feature.properties['METADATA'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['SHAPE_Leng'] !== null ? Autolinker.link(String(feature.properties['SHAPE_Leng'])) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_Rel_KA_Kota_Pekalongan_9_0() {
+            return {
+                pane: 'pane_Rel_KA_Kota_Pekalongan_9',
+                opacity: 1,
+                color: 'rgba(227,26,28,1.0)',
+                dashArray: '',
+                lineCap: 'square',
+                lineJoin: 'round',
+                weight: 1.0,
+                fillOpacity: 0,
+            }
+        }
+        function style_Rel_KA_Kota_Pekalongan_9_1() {
+            return {
+                pane: 'pane_Rel_KA_Kota_Pekalongan_9',
+                opacity: 1,
+                color: 'rgba(227,26,28,1.0)',
+                dashArray: '',
+                lineCap: 'square',
+                lineJoin: 'bevel',
+                weight: 1.0,
+                fillOpacity: 0,
+            }
+        }
+        function style_Rel_KA_Kota_Pekalongan_9_2() {
+            return {
+                pane: 'pane_Rel_KA_Kota_Pekalongan_9',
+            }
+        }
+        map.createPane('pane_Rel_KA_Kota_Pekalongan_9');
+        map.getPane('pane_Rel_KA_Kota_Pekalongan_9').style.zIndex = 409;
+        map.getPane('pane_Rel_KA_Kota_Pekalongan_9').style['mix-blend-mode'] = 'normal';
+        var layer_Rel_KA_Kota_Pekalongan_9 = new L.geoJson.multiStyle(json_Rel_KA_Kota_Pekalongan_9, {
+            attribution: '<a href=""></a>',
+            pane: 'pane_Rel_KA_Kota_Pekalongan_9',
+            onEachFeature: pop_Rel_KA_Kota_Pekalongan_9,
+            styles: [style_Rel_KA_Kota_Pekalongan_9_0,style_Rel_KA_Kota_Pekalongan_9_1,style_Rel_KA_Kota_Pekalongan_9_2,]
+        });
+        bounds_group.addLayer(layer_Rel_KA_Kota_Pekalongan_9);
+        map.addLayer(layer_Rel_KA_Kota_Pekalongan_9);
+        var baseMaps = {};
+        L.control.layers(baseMaps,{'<img src="legend/Rel_KA_Kota_Pekalongan_9.png" /> Rel_KA_Kota_Pekalongan': layer_Rel_KA_Kota_Pekalongan_9,'<img src="legend/Jembatan_Kota_Pekalongan_8.png" /> Jembatan_Kota_Pekalongan': layer_Jembatan_Kota_Pekalongan_8,'<img src="legend/tempatbatik_7.png" /> tempatbatik': layer_tempatbatik_7,'<img src="legend/Jalan_Kota_Pekalongan_6.png" /> Jalan_Kota_Pekalongan': layer_Jalan_Kota_Pekalongan_6,'<img src="legend/Sungai_AR_Kota_Pekalongan_5.png" /> Sungai_AR_Kota_Pekalongan': layer_Sungai_AR_Kota_Pekalongan_5,'<img src="legend/Sungai_LN_Kota_Pekalongan_4.png" /> Sungai_LN_Kota_Pekalongan': layer_Sungai_LN_Kota_Pekalongan_4,'<img src="legend/Pesisir_Kota_Pekalongan_3.png" /> Pesisir_Kota_Pekalongan': layer_Pesisir_Kota_Pekalongan_3,'<img src="legend/ADM_Kec_Pekalongan_2.png" /> ADM_Kec_Pekalongan': layer_ADM_Kec_Pekalongan_2,'ADM_Kel_Pekalongan<br /><table><tr><td style="text-align: center;"><img src="legend/ADM_Kel_Pekalongan_1_Bandengan0.png" /></td><td>Bandengan</td></tr><tr><td style="text-align: center;"><img src="legend/ADM_Kel_Pekalongan_1_Banyuuripageng1.png" /></td><td>Banyuuripageng</td></tr><tr><td style="text-align: center;"><img src="legend/ADM_Kel_Pekalongan_1_Banyuuripalit2.png" /></td><td>Banyuuripalit</td></tr><tr><td style="text-align: center;"><img src="legend/ADM_Kel_Pekalongan_1_Baros3.png" /></td><td>Baros</td></tr><tr><td style="text-align: center;"><img src="legend/ADM_Kel_Pekalongan_1_Bendan4.png" /></td><td>Bendan</td></tr><tr><td style="text-align: center;"><img src="legend/ADM_Kel_Pekalongan_1_Buaran5.png" /></td><td>Buaran</td></tr><tr><td style="text-align: center;"><img src="legend/ADM_Kel_Pekalongan_1_Bumirejo6.png" /></td><td>Bumirejo</td></tr><tr><td style="text-align: center;"><img src="legend/ADM_Kel_Pekalongan_1_Degayu7.png" /></td><td>Degayu</td></tr><tr><td style="text-align: center;"><img src="legend/ADM_Kel_Pekalongan_1_Dekoro8.png" /></td><td>Dekoro</td></tr><tr><td style="text-align: center;"><img src="legend/ADM_Kel_Pekalongan_1_Dukuh9.png" /></td><td>Dukuh</td></tr><tr><td style="text-align: center;"><img src="legend/ADM_Kel_Pekalongan_1_Duwet10.png" /></td><td>Duwet</td></tr><tr><td style="text-align: center;"><img src="legend/ADM_Kel_Pekalongan_1_Gamer11.png" /></td><td>Gamer</td></tr><tr><td style="text-align: center;"><img src="legend/ADM_Kel_Pekalongan_1_Jenggot12.png" /></td><td>Jenggot</td></tr><tr><td style="text-align: center;"><img src="legend/ADM_Kel_Pekalongan_1_Kandangpanjang13.png" /></td><td>Kandangpanjang</td></tr><tr><td style="text-align: center;"><img src="legend/ADM_Kel_Pekalongan_1_Karangmalang14.png" /></td><td>Karangmalang</td></tr><tr><td style="text-align: center;"><img src="legend/ADM_Kel_Pekalongan_1_Kauman15.png" /></td><td>Kauman</td></tr><tr><td style="text-align: center;"><img src="legend/ADM_Kel_Pekalongan_1_Kebulen16.png" /></td><td>Kebulen</td></tr><tr><td style="text-align: center;"><img src="legend/ADM_Kel_Pekalongan_1_KelNoyontaan17.png" /></td><td>Kel Noyontaan</td></tr><tr><td style="text-align: center;"><img src="legend/ADM_Kel_Pekalongan_1_Keputran18.png" /></td><td>Keputran</td></tr><tr><td style="text-align: center;"><img src="legend/ADM_Kel_Pekalongan_1_Kergon19.png" /></td><td>Kergon</td></tr><tr><td style="text-align: center;"><img src="legend/ADM_Kel_Pekalongan_1_Klego20.png" /></td><td>Klego</td></tr><tr><td style="text-align: center;"><img src="legend/ADM_Kel_Pekalongan_1_Kradenan21.png" /></td><td>Kradenan</td></tr><tr><td style="text-align: center;"><img src="legend/ADM_Kel_Pekalongan_1_Kramatsari22.png" /></td><td>Kramatsari</td></tr><tr><td style="text-align: center;"><img src="legend/ADM_Kel_Pekalongan_1_KrapyakKidul23.png" /></td><td>Krapyak Kidul</td></tr><tr><td style="text-align: center;"><img src="legend/ADM_Kel_Pekalongan_1_KrapyakLor24.png" /></td><td>Krapyak Lor</td></tr><tr><td style="text-align: center;"><img src="legend/ADM_Kel_Pekalongan_1_KratonKidul25.png" /></td><td>Kraton Kidul</td></tr><tr><td style="text-align: center;"><img src="legend/ADM_Kel_Pekalongan_1_KratonLor26.png" /></td><td>Kraton Lor</td></tr><tr><td style="text-align: center;"><img src="legend/ADM_Kel_Pekalongan_1_KuripanKidul27.png" /></td><td>Kuripan Kidul</td></tr><tr><td style="text-align: center;"><img src="legend/ADM_Kel_Pekalongan_1_KuripanLor28.png" /></td><td>Kuripan Lor</td></tr><tr><td style="text-align: center;"><img src="legend/ADM_Kel_Pekalongan_1_Landungsari29.png" /></td><td>Landungsari</td></tr><tr><td style="text-align: center;"><img src="legend/ADM_Kel_Pekalongan_1_Medono30.png" /></td><td>Medono</td></tr><tr><td style="text-align: center;"><img src="legend/ADM_Kel_Pekalongan_1_Pabean31.png" /></td><td>Pabean</td></tr><tr><td style="text-align: center;"><img src="legend/ADM_Kel_Pekalongan_1_PanjangWetan32.png" /></td><td>Panjang Wetan</td></tr><tr><td style="text-align: center;"><img src="legend/ADM_Kel_Pekalongan_1_Pasirsari33.png" /></td><td>Pasirsari</td></tr><tr><td style="text-align: center;"><img src="legend/ADM_Kel_Pekalongan_1_Podosugih34.png" /></td><td>Podosugih</td></tr><tr><td style="text-align: center;"><img src="legend/ADM_Kel_Pekalongan_1_Poncol35.png" /></td><td>Poncol</td></tr><tr><td style="text-align: center;"><img src="legend/ADM_Kel_Pekalongan_1_Pringlangu36.png" /></td><td>Pringlangu</td></tr><tr><td style="text-align: center;"><img src="legend/ADM_Kel_Pekalongan_1_Sampang37.png" /></td><td>Sampang</td></tr><tr><td style="text-align: center;"><img src="legend/ADM_Kel_Pekalongan_1_Sapuro38.png" /></td><td>Sapuro</td></tr><tr><td style="text-align: center;"><img src="legend/ADM_Kel_Pekalongan_1_Soko39.png" /></td><td>Soko</td></tr><tr><td style="text-align: center;"><img src="legend/ADM_Kel_Pekalongan_1_Sugihwaras40.png" /></td><td>Sugihwaras</td></tr><tr><td style="text-align: center;"><img src="legend/ADM_Kel_Pekalongan_1_Sukorejo41.png" /></td><td>Sukorejo</td></tr><tr><td style="text-align: center;"><img src="legend/ADM_Kel_Pekalongan_1_Tegalrejo42.png" /></td><td>Tegalrejo</td></tr><tr><td style="text-align: center;"><img src="legend/ADM_Kel_Pekalongan_1_Tirto43.png" /></td><td>Tirto</td></tr><tr><td style="text-align: center;"><img src="legend/ADM_Kel_Pekalongan_1_Yosorejo44.png" /></td><td>Yosorejo</td></tr></table>': layer_ADM_Kel_Pekalongan_1,"Google Road": overlay_GoogleRoad_0,}).addTo(map);
+        setBounds();
+        var i = 0;
+        layer_ADM_Kel_Pekalongan_1.eachLayer(function(layer) {
+            var context = {
+                feature: layer.feature,
+                variables: {}
+            };
+            layer.bindTooltip((layer.feature.properties['NAMOBJ'] !== null?String('<div style="color: #000000; font-size: 8pt; font-family: \'MS Shell Dlg 2\', sans-serif;">' + layer.feature.properties['NAMOBJ']) + '</div>':''), {permanent: true, offset: [-0, -16], className: 'css_ADM_Kel_Pekalongan_1'});
+            labels.push(layer);
+            totalMarkers += 1;
+              layer.added = true;
+              addLabel(layer, i);
+              i++;
+        });
+        var i = 0;
+        layer_ADM_Kec_Pekalongan_2.eachLayer(function(layer) {
+            var context = {
+                feature: layer.feature,
+                variables: {}
+            };
+            layer.bindTooltip((layer.feature.properties['WADMKC'] !== null?String('<div style="color: #000000; font-size: 11pt; font-weight: bold; font-family: \'MS Shell Dlg 2\', sans-serif;">' + layer.feature.properties['WADMKC']) + '</div>':''), {permanent: true, offset: [-0, -16], className: 'css_ADM_Kec_Pekalongan_2'});
+            labels.push(layer);
+            totalMarkers += 1;
+              layer.added = true;
+              addLabel(layer, i);
+              i++;
+        });
+        var i = 0;
+        layer_tempatbatik_7.eachLayer(function(layer) {
+            var context = {
+                feature: layer.feature,
+                variables: {}
+            };
+            layer.bindTooltip((layer.feature.properties['Tempat'] !== null?String('<div style="color: #ffffff; font-size: 6pt; font-family: \'MS Shell Dlg 2\', sans-serif;">' + layer.feature.properties['Tempat']) + '</div>':''), {permanent: true, offset: [-0, -16], className: 'css_tempatbatik_7'});
+            labels.push(layer);
+            totalMarkers += 1;
+              layer.added = true;
+              addLabel(layer, i);
+              i++;
+        });
+        map.addControl(new L.Control.Search({
+            layer: layer_ADM_Kel_Pekalongan_1,
+            initial: false,
+            hideMarkerOnCollapse: true,
+            propertyName: 'NAMOBJ'}));
+        resetLabels([layer_ADMKelPekalongan_1,layer_ADMKecPekalongan_2,layer_tempatbatik_7]);
+        map.on("zoomend", function(){
+            resetLabels([layer_ADMKelPekalongan_1,layer_ADMKecPekalongan_2,layer_tempatbatik_7]);
+        });
+        map.on("layeradd", function(){
+            resetLabels([layer_ADMKelPekalongan_1,layer_ADMKecPekalongan_2,layer_tempatbatik_7]);
+        });
+        map.on("layerremove", function(){
+            resetLabels([layer_ADMKelPekalongan_1,layer_ADMKecPekalongan_2,layer_tempatbatik_7]);
+        });
+        </script>
+    </body>
+</html>
